@@ -33,25 +33,26 @@ unset($ch);
 if($result)
 {        //Logged in
 //create a new dom document
-$doc = new DOMDocument();
-@$doc->loadHTML($result);
-$selector = new DOMXPath($doc);
-//get contents within the ismPitchElement and return playerid
-foreach($selector->query('//@class[starts-with(., "ismPitchElement")]') as $classattr) {
-    // remove the prefix using `ltrim()`
-    $json = json_decode(ltrim($classattr->nodeValue, "ismPitchElement"));
-    $thisid = ($json->id);
-$endhash ='/';
-//scroll through each player id on users team and get info
-$url = 'http://fantasy.premierleague.com/web/api/elements/';
-$urlid = $url . $thisid . $endhash; 
-$results = file_get_contents($urlid); 
-$playerstats = json_decode($results, true);
-$price = $playerstats['now_cost'];
-$playerprice = number_format($price/10, 1, '.', '');
-$points = $playerstats['total_points'];
-$webname = $playerstats['web_name'];
-	}
-
+	$doc = new DOMDocument();
+	@$doc->loadHTML($result);
+	$selector = new DOMXPath($doc);
+	//get contents within the ismPitchElement and return playerid
+		foreach($selector->query('//@class[starts-with(., "ismPitchElement")]') as $classattr) 
+		{
+    			// remove the prefix using `ltrim()`
+    			$json = json_decode(ltrim($classattr->nodeValue, "ismPitchElement"));
+    			$thisid = ($json->id);
+			$endhash ='/';
+			//scroll through each player id on users team and get info
+			$url = 'http://fantasy.premierleague.com/web/api/elements/';
+			$urlid = $url . $thisid . $endhash; 
+			$results = file_get_contents($urlid); 
+			$playerstats = json_decode($results, true);
+			$price = $playerstats['now_cost'];
+			$playerprice = number_format($price/10, 1, '.', '');
+			$points = $playerstats['total_points'];
+			$webname = $playerstats['web_name'];
+		}
+	
 }
 ?>
