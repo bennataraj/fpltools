@@ -31,26 +31,7 @@ unset($ch);
 //check for true/false
 
 if($result)
-{
-?> 
-<div id="content">
-
-<div>
-<div style="width: 950px; margin: auto;">
-<div style="width: 600px; float: left;">
-<table class="playertable"id="table_id">
-<thead></thead>
-<tbody>
-<tr bgcolor="#dbe9f2">
-    <th>Team</th>
-    <th>Photo</th>
-    <th>Name</th>
-    <th>Price</th>
-   <th>Points</th>
-    <th>Next Match</th>    
-  </tr>
-<tr>
-<?php        //Logged in
+{        //Logged in
 //create a new dom document
 $doc = new DOMDocument();
 @$doc->loadHTML($result);
@@ -70,17 +51,6 @@ $price = $playerstats['now_cost'];
 $playerprice = number_format($price/10, 1, '.', '');
 $points = $playerstats['total_points'];
 $webname = $playerstats['web_name'];
-echo "<td><img src=".$playerstats['shirt_mobile_image_url'].">"." ".$playerstats['team_name']."</td>";
-echo "<td><img src=".$playerstats['photo_mobile_url']." width='45' height='45'>"."</td>";
-echo "<td>".$playerstats['first_name']." ".$playerstats['web_name']."</td>";
-echo "<td>".$playerprice."</td>";
-echo "<td>".$playerstats['total_points']."</td>";
-echo "<td>".$playerstats['next_fixture']."</td>";
-?>
-</tr>
-
-
-<?php
 	}
 
 }
