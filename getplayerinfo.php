@@ -1,10 +1,5 @@
-<?php 
-$con = mysqli_connect("localhost:3306","root","password","databasename");
-// Check connection
-if (mysqli_connect_errno())
-  {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+<?php include 'connect.php';?>
+
 // Set execution time
 ini_set('max_execution_time', 900); 
 $id = 1;
