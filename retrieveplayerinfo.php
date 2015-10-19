@@ -1,10 +1,3 @@
-<?php
-$con = mysqli_connect("localhost:3306","root","password","databasename");
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
 
 $data = mysqli_query($con, "SELECT * FROM stats ORDER BY points DESC LIMIT 0, 1")
  or die(mysqli_error()); 
