@@ -1,3 +1,4 @@
+<?php include 'connect.php';?>
 
 $data = mysqli_query($con, "SELECT * FROM stats ORDER BY points DESC LIMIT 0, 1")
  or die(mysqli_error()); 
