@@ -1,4 +1,5 @@
-<?php include 'fplheader.php';?>
+<?php include 'fplheader.php';
+include 'connect.php';?>
 
 <div id="maincontent">
 
@@ -30,14 +31,7 @@
 		</div>
 	</div>
 <h3 class="white">2014 Season Starts in:</h3>
-<?php
-$con = mysqli_connect("localhost:3306","root","test","playersdb");
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
-?>
+
 <div class="playerboxes">
 <h3>Most Points</h3>
 <?php
